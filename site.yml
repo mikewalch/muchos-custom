@@ -1,0 +1,11 @@
+- hosts: proxy
+  roles:
+    - go
+  tasks:
+    - include: roles/go/tasks/download.yml
+- hosts: all
+  roles:
+    - vim
+    - go
+  tasks: 
+    - include: roles/go/tasks/install.yml

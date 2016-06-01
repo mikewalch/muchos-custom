@@ -1,0 +1,7 @@
+- name: "download go tarball to proxy" 
+  get_url: url={{ item.urlp }}/{{ item.fn }} dest={{ tarballs_dir }}/{{ item.fn }} sha256sum={{ item.sum }} force=no
+  register: gresult
+  until: "'OK' in gresult.msg or 'file already exists' in gresult.msg"
+  retries: 3
+  with_items:
+    - { urlp: "https://storage.googleapis.com/golang", fn: "{{ go_tarball }}", sum: "{{ go_sha256 }}" }

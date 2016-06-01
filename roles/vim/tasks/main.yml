@@ -1,0 +1,9 @@
+- name: "create directories for vim-pathogen"
+  file: path=/home/{{ cluster_user }}/.vim/{{ item }} state=directory
+  with_items:
+    - bundle
+    - autoload
+- name: "configure pathogen for vim"
+  get_url: url=https://tpo.pe/pathogen.vim dest=/home/{{ cluster_user }}/.vim/autoload/pathogen.vim
+- name: "add pathogen to vimrc"
+  lineinfile: dest=/home/{{ cluster_user }}/.vimrc line="execute pathogen#infect()"
