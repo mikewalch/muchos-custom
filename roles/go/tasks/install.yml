@@ -3,4 +3,5 @@
   become: yes
 - name: "add go to PATH in bash_profile"
   lineinfile: dest=/home/{{ cluster_user }}/.bash_profile insertafter="^PATH=" line="PATH=$PATH:/usr/local/go/bin"
-
+- name: "add vim-go plugin"
+  git: repo=https://github.com/fatih/vim-go.git dest=/home/{{ cluster_user }}/.vim/bundle/vim-go
