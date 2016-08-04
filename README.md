@@ -1,13 +1,13 @@
-# Zetten-Custom
+# Muchos-Custom
 
-My Ansible scripts and configuration that customize a Zetten cluster.
+My Ansible scripts and configuration that customize a Muchos cluster.
 
 ## Installation
 
-On Zetten proxy node, run the following commands:
+On Muchos proxy node, run the following commands:
 
 ```
-hub clone mikewalch/zetten-custom
-cd zetten-custom
+hub clone mikewalch/muchos-custom
+cd muchos-custom
 ansible-playbook site.yml
 ```
